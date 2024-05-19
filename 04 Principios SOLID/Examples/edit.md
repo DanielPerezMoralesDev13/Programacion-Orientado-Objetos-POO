@@ -1,0 +1,1 @@
+nano /home/d4nitrix13/.local/lib/python3.10/site-packages/numpy/typing/tests/data/mypy.ini
