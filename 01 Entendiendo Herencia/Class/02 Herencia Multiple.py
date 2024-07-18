@@ -4,6 +4,7 @@
 # GitHub: https://github.com/DanielPerezMoralesDev13
 # Correo electrónico: danielperezdev@proton.me 
 
+from sys import stdout
 class Persona:
     def __init__(self: 'Persona', nombre: str, edad: int, nacionalidad: str) -> None:
         self.nombre: str = nombre
@@ -11,15 +12,13 @@ class Persona:
         self.nacionalidad: str = nacionalidad
         return None
 
-    def Hablar(self: 'Persona') -> str:
-        return f"Hola, mi nombre es {self.nombre} y tengo {self.edad} años y soy {self.nacionalidad}"
+    def hablar(self: 'Persona') -> str: return f"Hola, mi nombre es {self.nombre} y tengo {self.edad} años y soy {self.nacionalidad}"
 
 class Artista:
     def __init__(self: 'Artista', habilidad: str) -> None:
         self.habilidad: str = habilidad
 
-    def mostrarHabilidad(self: 'Artista') -> str:
-        return f"Mi habilidad es {self.habilidad}"
+    def mostrar_habilidad(self: 'Artista') -> str: return f"Mi habilidad es {self.habilidad}"
 
 
 class EmpleadoArtista(Persona, Artista):
@@ -44,28 +43,24 @@ class EmpleadoArtista(Persona, Artista):
         self.empresa: str = empresa
         return None
 
-    def presentarseSuper(self: 'EmpleadoArtista') -> str:
-        return f"{super().mostrarHabilidad()}"
+    def presentarse_super(self: 'EmpleadoArtista') -> str: return f"{super().mostrar_habilidad()}"
 
-    # al hacer super().Hablar() estamos accediendo al metodo Hablar de la clase padre no de la clase hija.
+    # al hacer super().hablar() estamos accediendo al metodo hablar de la clase padre no de la clase hija.
 
-    def presentarseSelf(self: 'EmpleadoArtista') -> str:
-        return f"{self.mostrarHabilidad()}"
+    def presentarse_self(self: 'EmpleadoArtista') -> str: return f"{self.mostrar_habilidad()}"
 
-    # y cuando hacemos self.mostrarHabilidad() estamos accediendo al metodo mostrarHabilidad de la clase hija no de la clase padre.
+    # y cuando hacemos self.mostrar_habilidad() estamos accediendo al metodo mostrar_habilidad de la clase hija no de la clase padre.
 
-    def mostrarHabilidad(self: 'EmpleadoArtista') -> str:
-        return "No tengo habilidad"
+    def mostrar_habilidad(self: 'EmpleadoArtista') -> str: return "No tengo habilidad"
 
     # si nosotros creamos un metodo con el mismo nombre de un metodo de una clase padre, el metodo de la clase hija va a tener prioridad.
-    def presentarseOne(self: 'EmpleadoArtista') -> str:
-        return f"Hola, mi nombre es {self.nombre} y mi habilidad es {self.mostrarHabilidad()} y tengo {self.edad} años y soy {self.nacionalidad} y trabajo en {self.empresa} y gano {self.salario}"
+    def presentarse_one(self: 'EmpleadoArtista') -> str: return f"Hola, mi nombre es {self.nombre} y mi habilidad es {self.mostrar_habilidad()} y tengo {self.edad} años y soy {self.nacionalidad} y trabajo en {self.empresa} y gano {self.salario}"
 
-    def presentarseTwo(self: 'EmpleadoArtista') -> str:
-        return f"Hola, mi nombre es {self.nombre} y {super().mostrarHabilidad()} y tengo {self.edad} años y soy {self.nacionalidad} y trabajo en {self.empresa} y gano {self.salario} dolares al mes"
+    def presentarse_two(self: 'EmpleadoArtista') -> str:
+        return f"Hola, mi nombre es {self.nombre} y {super().mostrar_habilidad()} y tengo {self.edad} años y soy {self.nacionalidad} y trabajo en {self.empresa} y gano {self.salario} dolares al mes"
 
 
-Daniel = EmpleadoArtista(
+daniel: EmpleadoArtista = EmpleadoArtista(
     nombre="Daniel",
     edad=20,
     nacionalidad="Nicaraguense",
@@ -74,6 +69,6 @@ Daniel = EmpleadoArtista(
     empresa="Google",
 )
 
-print(Daniel.presentarseSuper(),end = "\n")
-print(Daniel.presentarseSelf(),end = "\n")
-print(Daniel.presentarseTwo(),end = "\n")
+print(daniel.presentarse_super(), end = "\n", file = stdout)
+print(daniel.presentarse_self(), end = "\n", file = stdout)
+print(daniel.presentarse_two(), end = "\n", file = stdout)

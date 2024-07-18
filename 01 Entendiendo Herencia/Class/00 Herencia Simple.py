@@ -8,11 +8,12 @@
 
 # la clase super clase o super padre, es la clase que hereda sus atributos y metodos a las subclases o clases hijas. tambien se le conoce como clase padre o clase base.
 
-""" existen 3 tipos de herencia: 
+"""
+Existen 3 tipos de herencia: 
 
->>> herencia simple: cuando una clase hereda los atributos y metodos de una sola clase.
+>>> Herencia Simple: Cuando Una Clase Hereda Los Atributos Y Metodos De Una Sola Clase.
 
-ejemplo grafico con caracteres ASCII:
+Ejemplo grafico con caracteres ASCII:
 
     -----------------
     |    Persona    |
@@ -25,9 +26,9 @@ ejemplo grafico con caracteres ASCII:
     -----------------
 
 
->>> herencia jerarquica: es cuando varias clases heredan los atributos y metodos de una sola clase.
+>>> Herencia Jerarquica: Es Cuando Varias Clases Heredan Los Atributos Y Metodos De Una Sola Clase.
 
-ejemplo grafico con caracteres ASCII:
+Ejemplo grafico con caracteres ASCII:
                         -----------------
                         |    Persona    |
                         -----------------
@@ -41,8 +42,11 @@ ejemplo grafico con caracteres ASCII:
     -----------------  -----------------  -----------
     
     
->>> herencia multiple: es cuando una clase hereda los atributos y metodos de varias clases.
+>>> Herencia Multiple: Es Cuando Una Clase Hereda Los Atributos Y Metodos De Varias Clases.
 """
+
+
+from sys import stdout
 
 
 class Persona:
@@ -53,8 +57,7 @@ class Persona:
         return None
 
 
-    def Hablar(self: 'Persona') -> str:
-        return f"Hola, mi nombre es {self.nombre} y tengo {self.edad} años y soy {self.nacionalidad}"
+    def hablar(self: 'Persona') -> str: return f"Hola, mi nombre es {self.nombre} y tengo {self.edad} años y soy {self.nacionalidad}"
 
 
 class Empleado(Persona):
@@ -79,30 +82,29 @@ class Empleado(Persona):
     ) -> None:
         # para heredar los atributos de la clase padre, se debe usar la funcion super() y pasar los atributos de la clase padre no es necesario pasar el self.
 
-        super().__init__(nombre, edad, nacionalidad)
+        super().__init__(nombre = nombre, edad = edad, nacionalidad = nacionalidad)
         self.trabajo: str = trabajo
         self.salario: float = salario
         return None
 
     # se pueden sobre escribir metodos de la clase padre, en la clase hija.
 
-    def Hablar(self: 'Persona') -> str:
-        return f"No quiero hablar con nadie"
+    def hablar(self: 'Persona') -> str: return f"No quiero hablar con nadie"
 
-    # aqui se sobre escribio el metodo Hablar de la clase padre, en la clase hija.
+    # aqui se sobre escribio el metodo hablar de la clase padre, en la clase hija.
 
     # tambien se pueden sobre escribir los atributos de la clase padre, en la clase hija.
 
     # el ejemplo de este fichero es herencia simple, ya que la clase Empleado hereda los atributos de la clase Persona.
 
 
-daniel = Empleado(
-    nombre="Daniel",
-    edad=18,
-    nacionalidad="Nicaraguense",
-    trabajo="Programador",
-    salario=1000.00,
+daniel: Empleado = Empleado(
+    nombre = "Daniel",
+    edad = 18,
+    nacionalidad = "Nicaraguense",
+    trabajo = "Programador",
+    salario = 1000.00,
 )
 
-print(daniel.nacionalidad,end="\n", file = stdout)
-print(daniel.Hablar(),end="\n", file = stdout)
+print(daniel.nacionalidad,end = "\n", file = stdout)
+print(daniel.hablar(),end = "\n", file = stdout)

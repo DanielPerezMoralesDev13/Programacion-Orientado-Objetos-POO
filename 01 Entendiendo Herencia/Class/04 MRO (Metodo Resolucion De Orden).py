@@ -11,31 +11,27 @@ que estan involucradas en la herencia multiple (cuando una clase hereda de mas d
 """
 
 
-class A:
-    def Hablar(self: 'A') -> str:
-        return "Hola soy la clase A"
+from sys import stdout
 
+
+class A:
+    def hablar(self: 'A') -> str: return "Hola soy la clase A"
 
 class F:
-    """def Hablar(self: object) -> str:
+    """def hablar(self: object) -> str:
     return "Hola soy la clase F"
     """
     pass
 
 class B(A):
-    def Hablar(self: object) -> str:
-        return "Hola soy la clase B"
-
+    def hablar(self: object) -> str: return "Hola soy la clase B"
 class C(F):
-    def Hablar(self: object) -> str:
-        return "Hola soy la clase C"
-
+    def hablar(self: object) -> str: return "Hola soy la clase C"
 class D(B, C):
-    def Hablar(self: object) -> str:
-        return "Hola soy la clase D"
+    def hablar(self: object) -> str: return "Hola soy la clase D"
 
 letra: D = D()
-print(letra.Hablar(),end="\n", file = stdout)
+print(letra.hablar(),end="\n", file = stdout)
 print(D.__mro__,end="\n", file = stdout)
 # el metodo mro nos dice el orden en el que se van a ejecutar los metodos y atributos de las clases que estan involucradas en la herencia multiple
 
@@ -46,7 +42,7 @@ print(letra.__class__,end="\n", file = stdout)
 
 
 # Si queremos llamar un metodo de una clase especifica podemos hacerlo de esta manera
-print(B.Hablar(self=letra),end="\n", file = stdout)
+print(B.hablar(self=letra),end="\n", file = stdout)
 # la salida es: Hola soy la clase B porque estamos llamando el metodo de la clase B pasandole como parametro el objeto letra que es de la clase D. No es necesario que la clase del objeto tenga heredada la clase B para poder llamar el metodo de la clase B
 
 """

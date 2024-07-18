@@ -19,8 +19,7 @@ class Persona:
         self.edad: int = edad
         return None
 
-    def datosPersona(self: 'Persona') -> str:
-        return f"Nombre: {self.nombre}\nEdad: {self.edad}"
+    def datos_persona(self: 'Persona') -> str: return f"Nombre: {self.nombre}\nEdad: {self.edad}"
 
 
 class Estudiante(Persona):
@@ -29,7 +28,7 @@ class Estudiante(Persona):
         self.grado: str = grado
         return None
 
-    def gradoEstudiante(self: 'Estudiante') -> str:
+    def grado_estudiante(self: 'Estudiante') -> str:
         # return "Grado: {grado_actual}".format(grado_actual=self.grado)  formato de impresion con .format y asignacion de variables 
         
         # return "Grado: {}".format(self.grado) formato de impresion con .format 
@@ -41,8 +40,8 @@ class Estudiante(Persona):
         return f"Grado: {self.grado}" # formato de impresion con f-string
 
 
-Daniel: Estudiante = Estudiante(nombre="Daniel", edad=20, grado="10mo grado")
-print(Daniel.nombre, end="\n")
-print(Daniel.edad, end="\n")
-print(Daniel.datosPersona(), end="\n")
-print(Daniel.gradoEstudiante(), end="\n")
+daniel: Estudiante = Estudiante(nombre = "Daniel", edad = 20, grado = "10mo grado")
+print(daniel.nombre, end="\n")
+print(daniel.edad, end="\n")
+print(daniel.datos_persona(), end="\n")
+print(daniel.grado_estudiante(), end="\n")

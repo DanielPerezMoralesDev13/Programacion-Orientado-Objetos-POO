@@ -4,6 +4,9 @@
 # GitHub: https://github.com/DanielPerezMoralesDev13
 # Correo electrónico: danielperezdev@proton.me
 
+from sys import stdout
+
+
 class Persona:
     def __init__(self: 'Persona', nombre: str, edad: int, nacionalidad: str) -> None:
         self.nombre: str = nombre
@@ -11,17 +14,14 @@ class Persona:
         self.nacionalidad: str = nacionalidad
         return None
 
-    def Hablar(self: 'Persona') -> str:
-        return f"Hola, mi nombre es {self.nombre} y tengo {self.edad} años y soy {self.nacionalidad}"
+    def hablar(self: 'Persona') -> str: return f"Hola, mi nombre es {self.nombre} y tengo {self.edad} años y soy {self.nacionalidad}"
 
 class Artista:
     def __init__(self: 'Artista', habilidad: str) -> None:
         self.habilidad: str = habilidad
         return None
 
-    def mostrarHabilidad(self: 'Artista') -> str:
-        return f"Mi habilidad es {self.habilidad}"
-
+    def mostrar_habilidad(self: 'Artista') -> str: return f"Mi habilidad es {self.habilidad}"
 
 class EmpleadoArtista(Persona, Artista):
     def __init__(
@@ -44,37 +44,32 @@ class EmpleadoArtista(Persona, Artista):
         return None
 
 
-    def presentarseSuper(self: 'EmpleadoArtista') -> str:
-        return f"{super().mostrarHabilidad()}"
+    def presentarse_super(self: 'EmpleadoArtista') -> str: return f"{super().mostrar_habilidad()}"
 
-    # al hacer super().Hablar() estamos accediendo al metodo Hablar de la clase padre no de la clase hija.
+    # al hacer super().hablar() estamos accediendo al metodo hablar de la clase padre no de la clase hija.
 
-    def presentarseSelf(self: 'EmpleadoArtista') -> str:
-        return f"{self.mostrarHabilidad()}"
+    def presentarse_self(self: 'EmpleadoArtista') -> str: return f"{self.mostrar_habilidad()}"
 
-    # y cuando hacemos self.mostrarHabilidad() estamos accediendo al metodo mostrarHabilidad de la clase hija no de la clase padre.
+    # y cuando hacemos self.mostrar_habilidad() estamos accediendo al metodo mostrar_habilidad de la clase hija no de la clase padre.
 
-    def mostrarHabilidad(self: 'EmpleadoArtista') -> str:
-        return "No tengo habilidad"
+    def mostrar_habilidad(self: 'EmpleadoArtista') -> str: return "No tengo habilidad"
 
     # si nosotros creamos un metodo con el mismo nombre de un metodo de una clase padre, el metodo de la clase hija va a tener prioridad.
-    def presentarseOne(self: 'EmpleadoArtista') -> str:
-        return f"Hola, mi nombre es {self.nombre} y mi habilidad es {self.mostrarHabilidad()} y tengo {self.edad} años y soy {self.nacionalidad} y trabajo en {self.empresa} y gano {self.salario}"
+    def presentarse_one(self: 'EmpleadoArtista') -> str: return f"Hola, mi nombre es {self.nombre} y mi habilidad es {self.mostrar_habilidad()} y tengo {self.edad} años y soy {self.nacionalidad} y trabajo en {self.empresa} y gano {self.salario}"
 
-    def presentarseTwo(self: 'EmpleadoArtista') -> str:
-        return f"Hola, mi nombre es {self.nombre} y {super().mostrarHabilidad()} y tengo {self.edad} años y soy {self.nacionalidad} y trabajo en {self.empresa} y gano {self.salario} dolares al mes"
+    def presentarse_two(self: 'EmpleadoArtista') -> str: return f"Hola, mi nombre es {self.nombre} y {super().mostrar_habilidad()} y tengo {self.edad} años y soy {self.nacionalidad} y trabajo en {self.empresa} y gano {self.salario} dolares al mes"
 
 
-Daniel: EmpleadoArtista = EmpleadoArtista(
-    nombre="Daniel",
-    edad=20,
-    nacionalidad="Nicaraguense",
-    habilidad="Cantar",
-    salario=1000000,
-    empresa="Google",
+daniel: EmpleadoArtista = EmpleadoArtista(
+    nombre = "Daniel",
+    edad = 20,
+    nacionalidad = "Nicaraguense",
+    habilidad = "Cantar",
+    salario = 1000000,
+    empresa = "Google",
 )
 
-Danna: Artista = Artista(habilidad="Programar")
+danna: Artista = Artista(habilidad = "Programar")
 
 # Para saber si una clase es subclase de otra, podemos usar la funcion issubclass() y pasarle como primer argumento la clase que queremos saber si es subclase de otra y como segundo argumento la clase de la cual queremos saber si es subclase.
 """
@@ -85,10 +80,10 @@ el valor que nos va a retornar es un booleano, True si es subclase y False si no
 """
 
 herencia: bool = issubclass(EmpleadoArtista, Persona)
-print(f"¿Es EmpleadoArtista subclase de Persona?: {'Si' if (herencia == True) else 'No'}",end="\n", file = stdout)
+print(f"¿Es EmpleadoArtista subclase de Persona?: {'Si' if herencia == True else 'No'}",end = "\n", file = stdout)
 
 herencia = issubclass(Artista, Persona)
-print(f"¿Es Artista subclase de Persona?: {'Si' if (herencia == True) else 'No'}",end="\n", file = stdout)
+print(f"¿Es Artista subclase de Persona?: {'Si' if herencia == True else 'No'}",end = "\n", file = stdout)
 
 # para saber si un objeto es una instancia de una clase, podemos usar la funcion isinstance() y pasarle como primer argumento el objeto que queremos saber si es instancia de una clase y como segundo argumento la clase de la cual queremos saber si es instancia.
 
@@ -97,24 +92,24 @@ ejemplo:
 instancia = isinstance(objeto, clase_de_la_cual_queremos_saber_si_es_instancia)
 """
 
-instancia = isinstance(Daniel, EmpleadoArtista)
-print(f"¿Es Daniel una instancia de EmpleadoArtista?: {'Si' if (instancia == True) else 'No'}",end="\n", file = stdout)
+instancia: bool = isinstance(daniel, EmpleadoArtista)
+print(f"¿Es Daniel una instancia de EmpleadoArtista?: {'Si' if instancia == True else 'No'}",end = "\n", file = stdout)
 # la razon por la cual Daniel es una instancia de EmpleadoArtista es porque Daniel es un objeto de la clase EmpleadoArtista.
 
-instancia = isinstance(Daniel, Artista)
-print(f"¿Es Daniel una instancia de Artista?: {'Si' if (instancia == True) else 'No'}",end="\n", file = stdout)
+instancia = isinstance(daniel, Artista)
+print(f"¿Es Daniel una instancia de Artista?: {'Si' if (instancia == True) else 'No'}",end = "\n", file = stdout)
 # la razon por la cual Daniel es una instancia de Artista es porque la clase EmpleadoArtista hereda los atributos de la clase Artista.
 
-instancia = isinstance(Daniel, Persona)
-print(f"¿Es Daniel una instancia de Persona?: {'Si' if (instancia == True) else 'No'}",end="\n", file = stdout)
+instancia = isinstance(daniel, Persona)
+print(f"¿Es Daniel una instancia de Persona?: {'Si' if (instancia == True) else 'No'}",end = "\n", file = stdout)
 # la razon por la cual Daniel es una instancia de Persona es porque la clase EmpleadoArtista hereda los atributos de la clase Persona.
 
-instancia = isinstance(Danna, EmpleadoArtista)
-print(f"¿Es Danna una instancia de EmpleadoArtista?: {'Si' if (instancia == True) else 'No'}",end="\n", file = stdout)
+instancia = isinstance(danna, EmpleadoArtista)
+print(f"¿Es Danna una instancia de EmpleadoArtista?: {'Si' if (instancia == True) else 'No'}",end = "\n", file = stdout)
 # la razon por la cual Danna no es una instancia de EmpleadoArtista es porque Danna es un objeto de la clase Artista y la clase Artista no hereda los atributos de la clase EmpleadoArtista.
 
-instancia = isinstance(Danna, Persona)
-print(f"¿Es Danna una instancia de Persona?: {'Si' if (instancia == True) else 'No'}",end="\n", file = stdout)
+instancia = isinstance(danna, Persona)
+print(f"¿Es Danna una instancia de Persona?: {'Si' if (instancia == True) else 'No'}",end = "\n", file = stdout)
 
-instancia = isinstance(Danna, Artista)
-print(f"¿Es Danna una instancia de Artista?: {'Si' if (instancia == True) else 'No'}",end="\n", file = stdout)
+instancia = isinstance(danna, Artista)
+print(f"¿Es Danna una instancia de Artista?: {'Si' if (instancia == True) else 'No'}",end = "\n", file = stdout)
