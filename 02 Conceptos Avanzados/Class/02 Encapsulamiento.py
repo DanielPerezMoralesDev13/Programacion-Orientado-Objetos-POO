@@ -34,32 +34,30 @@ el resto del programa.
 # Para poder ejecutar metodo privado desde fuera de la clase se debe crear un metodo publico o protegido que llame al metodo privado
 
 
+from sys import stdout
+
+
 class MiClase:
     def __init__(self: 'MiClase') -> None:
-        self.atributo_publico: str = "Soy un atributo publico"
-        self._atributo_protegido: str = "Soy un atributo protegido"
-        self.__atributo_privado: str = "Soy un atributo inalcanzable desde fuera de la clase"
+        self.atributoPublico: str = "Soy un atributo publico"
+        self._atributoProtegido: str = "Soy un atributo protegido"
+        self.__atributoPrivado: str = "Soy un atributo inalcanzable desde fuera de la clase"
         return None
 
-    def metodoPublico(self: 'MiClase') -> str:
-        return "Soy un metodo publico"
+    def metodo_publico(self: 'MiClase') -> str: return "Soy un metodo publico"
+    def _metodo_protegido(self: 'MiClase') -> str: return "Soy un metodo protegido"
+    def __metodo_privado(self: 'MiClase') -> str: return "Soy un metodo inalcanzable desde fuera de la clase"
 
-    def _metodoProtegido(self: 'MiClase') -> str:
-        return "Soy un metodo protegido"
-
-    def __metodoPrivado(self: 'MiClase') -> str:
-        return "Soy un metodo inalcanzable desde fuera de la clase"
-
-    def getFuncionMetodoPrivado(self: 'MiClase') -> str:
-        return self.__metodoPrivado()
+    def get_funcion_metodo_privado(self: 'MiClase') -> str:
+        return self.__metodo_privado()
 
 
 objeto: MiClase = MiClase()
-print(objeto.getFuncionMetodoPrivado(),end="\n", file = stdout) # se puede acceder a un metodo privado mediante un metodo publico
-print(objeto.atributo_publico,end="\n", file = stdout)  # se puede acceder a un atributo publico
-print(objeto._atributo_protegido,end="\n", file = stdout)  # se puede acceder a un atributo protegido
-# print(objeto.__atributo_privado) # no se puede acceder a un atributo privado
+print(objeto.get_funcion_metodo_privado(),end="\n", file = stdout) # se puede acceder a un metodo privado mediante un metodo publico
+print(objeto.atributoPublico,end="\n", file = stdout)  # se puede acceder a un atributo publico
+print(objeto._atributoProtegido,end="\n", file = stdout)  # se puede acceder a un atributo protegido
+# print(objeto.__atributoPrivado) # no se puede acceder a un atributo privado
 
-print(objeto.metodoPublico(),end="\n", file = stdout)  # se puede acceder a un metodo publico
-print(objeto._metodoProtegido(),end="\n", file = stdout)  # se puede acceder a un metodo protegido
+print(objeto.metodo_publico(),end="\n", file = stdout)  # se puede acceder a un metodo publico
+print(objeto._metodo_protegido(),end="\n", file = stdout)  # se puede acceder a un metodo protegido
 # print(objeto.__metodoprivado(),end="\n", file = stdout) # no se puede acceder a un metodo privado

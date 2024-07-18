@@ -5,27 +5,28 @@
 # Correo electrónico: danielperezdev@proton.me
 
 from typing import Callable
-def decoradorOne(funcion: Callable) -> Callable:
-    def funcionInterna() -> None:
+
+def decorador_one(funcion: Callable[[], None]) -> Callable[[], None]:
+    def funcion_interna() -> None:
         print("Decorador 1 antes de la ejecución de la función")
         funcion()
         print("Decorador 1 después de la ejecución de la función")
         return None
-    return funcionInterna
+    return funcion_interna
 
 
-def decoradorTwo(funcion: Callable) -> Callable:
-    def funcionInterna() -> None:
+def decorador_two(funcion: Callable[[], None]) -> Callable[[], None]:
+    def funcion_interna() -> None:
         print("Decorador 2 antes de la ejecución de la función")
         funcion()
         print("Decorador 2 después de la ejecución de la función")
         return None
 
-    return funcionInterna
+    return funcion_interna
 
 
-@decoradorOne
-@decoradorTwo
+@decorador_one
+@decorador_two
 def saludo() -> None:
     print("¡Hola!")
     return None
@@ -33,7 +34,7 @@ def saludo() -> None:
 saludo()
 
 """
-saludo está decorado con @decoradorOne y @decoradorTwo, la salida completa será:
+saludo está decorado con @decorador_one y @decorador_two, la salida completa será:
 
 >>> Decorador 1 antes de la ejecución de la función
 >>> Decorador 2 antes de la ejecución de la función
@@ -41,17 +42,17 @@ saludo está decorado con @decoradorOne y @decoradorTwo, la salida completa ser�
 >>> Decorador 2 después de la ejecución de la función
 >>> Decorador 1 después de la ejecución de la función
 
-La salida que ves es el resultado de aplicar dos decoradores, decoradorOne y decoradorTwo, a la función saludo. Los decoradores en Python se aplican de abajo hacia arriba. Por lo tanto, primero se aplica decoradorTwo, luego decoradorOne.
+La salida que ves es el resultado de aplicar dos decoradores, decorador_one y decorador_two, a la función saludo. Los decoradores en Python se aplican de abajo hacia arriba. Por lo tanto, primero se aplica decorador_two, luego decorador_one.
 
 Cuando llamas a la función saludo(), esto es lo que sucede:
 
-Debido al decorador decoradorOne, se imprime "Decorador 1 antes de la ejecución de la función".
+Debido al decorador decorador_one, se imprime "Decorador 1 antes de la ejecución de la función".
 
-Luego, se llama a la función saludo. Pero saludo ha sido decorada con decoradorTwo, por lo que en lugar de ejecutar saludo directamente, se ejecuta el código del decorador decoradorTwo.
+Luego, se llama a la función saludo. Pero saludo ha sido decorada con decorador_two, por lo que en lugar de ejecutar saludo directamente, se ejecuta el código del decorador decorador_two.
 
-Dentro de decoradorTwo, se imprime "Decorador 2 antes de la ejecución de la función", luego se ejecuta la función original saludo (que imprime "¡Hola!"), y finalmente se imprime "Decorador 2 después de la ejecución de la función".
+Dentro de decorador_two, se imprime "Decorador 2 antes de la ejecución de la función", luego se ejecuta la función original saludo (que imprime "¡Hola!"), y finalmente se imprime "Decorador 2 después de la ejecución de la función".
 
-Después de que se completa la ejecución de decoradorTwo y saludo, se vuelve al decorador decoradorOne, donde se imprime "Decorador 1 después de la ejecución de la función".
+Después de que se completa la ejecución de decorador_two y saludo, se vuelve al decorador decorador_one, donde se imprime "Decorador 1 después de la ejecución de la función".
 
 
 Se puedes aplicar tantos decoradores como desees a una función en Python.

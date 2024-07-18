@@ -9,6 +9,9 @@ Los getters y setters son métodos que nos permiten acceder y modificar atributo
 """
 
 
+from sys import stdout
+
+
 class Persona:
     def __init__(self: 'Persona', nombre: str, edad: int) -> None:
         self.__nombre: str = nombre
@@ -16,31 +19,28 @@ class Persona:
         return None
 
     # Getters para obtener los valores de los atributos privados
-    def getNombre(self: 'Persona') -> str:
-        return self.__nombre
+    def get_nombre(self: 'Persona') -> str: return self.__nombre
 
-    def getEdad(self: 'Persona') -> int:
-        return self.__edad
+    def get_edad(self: 'Persona') -> int: return self.__edad
 
     # Setters para modificar los valores de los atributos privados
-    def setNombre(self: 'Persona', nuevo_nombre: str) -> None:
+    def set_nombre(self: 'Persona', nuevo_nombre: str) -> None:
         self.__nombre = nuevo_nombre
         return None
     
-    def setEdad(self: 'Persona', nueva_edad: int) -> None:
+    def set_edad(self: 'Persona', nueva_edad: int) -> None:
         self.__edad = nueva_edad
         return None
 
-
-Daniel: Persona = Persona(nombre="Daniel", edad=20)
+daniel: Persona = Persona(nombre="Daniel", edad=20)
 
 # Getters para obtener los valores de los atributos privados
-print(Daniel.getNombre(),end="\n", file = stdout)
+print(daniel.get_nombre(),end="\n", file = stdout)
 
 # Setters para modificar los valores de los atributos privados
 
 # Forma correcta para modificar los atributos privados
-Daniel.setNombre(nuevo_nombre="Benjamin")
+daniel.set_nombre(nuevo_nombre="Benjamin")
 
-Daniel.__nombre = "Benjamin" # No se puede modificar el atributo privado de esta forma
-print(Daniel.getNombre(),end="\n", file = stdout)
+daniel.__nombre = "Benjamin" # No se puede modificar el atributo privado de esta forma
+print(daniel.get_nombre(),end="\n", file = stdout)

@@ -4,22 +4,23 @@
 # GitHub: https://github.com/DanielPerezMoralesDev13
 # Correo electrónico: danielperezdev@proton.me
 
+from sys import stdout
 from typing import Callable
 
 # Este tipo de decorador se le conoce como decorador de funcion
-def decorador(funcion: Callable) -> Callable:
-    def funcionModificada() -> None:
-        print("Antes de ejecutar la funcion")
+def decorador(funcion: Callable[[],None]) -> Callable[[],None]:
+    def funcion_modificada() -> None:
+        print("Antes de ejecutar la funcion", end = "\n", file = stdout)
         funcion()
-        print("Despues de ejecutar la funcion")
+        print("Despues de ejecutar la funcion", end = "\n", file = stdout)
         return None
 
-    return funcionModificada
+    return funcion_modificada
 
 
 @decorador
 def saludo() -> None:
-    print("Hola Daniel")
+    print("Hola Daniel", end = "\n", file = stdout)
 
 # Mofiicamos la funcion saludo con el decorador
 saludo()

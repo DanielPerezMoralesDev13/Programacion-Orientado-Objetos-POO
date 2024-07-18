@@ -21,34 +21,29 @@ Python no soporta la sobrecarga de métodos de esta manera. Si defines un métod
 Sin embargo, Python tiene formas de lograr un comportamiento similar a la sobrecarga de métodos. Una forma común es usar argumentos con valores predeterminados o argumentos variables.
 """
 
+from typing import Optional
+from sys import stdout
+
 class Animal:
     def __init__(self: 'Animal') -> None:
         return None
 
-    def Sonido(self: 'Animal') -> None | str:
-        return None
-
-
+    def sonido(self: 'Animal') -> Optional[str]: return None
 class Gato(Animal):
     def __init__(self: 'Gato') -> None:
         super().__init__()
         return None
 
-    def Sonido(self: 'Gato') -> str:
-        return "Miau"
-
-
+    def sonido(self: 'Gato') -> str: return "Miau"
 class Perro(Animal):
     def __init__(self: 'Perro') -> None:
         super().__init__()
         return None
 
-    def Sonido(self: 'Perro') -> str:
-        return "Guau"
+    def sonido(self: 'Perro') -> str: return "Guau"
 
+gatito: Gato = Gato()
+perrito: Perro = Perro()
 
-Gatito: Gato = Gato()
-Perrito: Perro = Perro()
-
-print(Gatito.Sonido(),end="\n", file = stdout)
-print(Perrito.Sonido(),end="\n", file = stdout)
+print(gatito.sonido(), end = "\n", file = stdout)
+print(perrito.sonido(), end = "\n", file = stdout)

@@ -15,32 +15,31 @@ Todas las variables en python son polimorficas porque pueden contener objetos de
 """
 
 
+from sys import stdout
+from typing import Union
+
+
 class Gato:
     def __init__(self: 'Gato') -> None:
         return None
     
-    def sonido(self: 'Gato') -> str:
-        return "Miau"
-    
+    def sonido(self: 'Gato') -> str: return "Miau"
 class Perro:
-    def __init__(self: 'Perro') -> None:
-        return None
+    def __init__(self: 'Perro') -> None: return None
     
-    def sonido(self: 'Perro') -> str:
-        return "Guau"
+    def sonido(self: 'Perro') -> str: return "Guau"
 
-Gatito: Gato = Gato()
-Perrito: Perro = Perro()
+gatito: Gato = Gato()
+perrito: Perro = Perro()
 
-print(Gatito.sonido(),end="\n", file = stdout)
-print(Perrito.sonido(),end="\n", file = stdout)
+print(gatito.sonido(),end="\n", file = stdout)
+print(perrito.sonido(),end="\n", file = stdout)
 # Ambos objetos tienen el mismo metodo pero cada uno lo ejecuta de manera diferente, esto es polimorfismo
 
 # Si hacemos este codigo en cualquiera de los lenguages de tipado estatico, nos daria un error ya que varias clases no pueden tener el mismo metodo, pero en python si se puede
 
-def hacersonido(Animal: Gato | Perro) -> str:
-    return Animal.sonido()
+def hacer_sonido(Animal: Union[Gato, Perro]) -> str: return Animal.sonido()
 
-hacersonido(Animal = Gatito)
-# Esto es polimorfismo de funcion, ya que el metodo hacersonido puede recibir cualquier objeto que tenga el metodo sonido y ejecutarlo sin problemas
+hacer_sonido(Animal = gatito)
+# Esto es polimorfismo de funcion, ya que el metodo hacer_sonido puede recibir cualquier objeto que tenga el metodo sonido y ejecutarlo sin problemas
 

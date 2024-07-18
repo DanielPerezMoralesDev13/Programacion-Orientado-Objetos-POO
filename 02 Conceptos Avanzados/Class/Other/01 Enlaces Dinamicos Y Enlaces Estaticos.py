@@ -13,34 +13,33 @@ El enlace dinámico, también conocido como enlace tardío, se resuelve en tiemp
 """
 
 
+from sys import stdout
+from typing import Optional, Union
+
 class Animal:
-    def hablar(self: 'Animal') -> None | str:
-        return None
+    def hablar(self: 'Animal') -> Optional[str]: return None
 
 class Pato(Animal):
-    def hablar(self: 'Pato') -> str:
-        return "¡Cuac!"
-
-
+    def hablar(self: 'Pato') -> str: return "¡Cuac!"
 class Perro(Animal):
-    def hablar(self: 'Perro') -> str:
-        return "¡Guau!"
+    def hablar(self: 'Perro') -> str: return "¡Guau!"
 
-def hacerHablar(animal: Pato | Perro):
+def hacer_hablar(animal: Union[Pato, Perro]) -> None:
     # No importa el tipo de 'animal' mientras tenga un método 'hablar'
     print(animal.hablar(),end="\n", file = stdout)
+    return None
 
 pato: Pato = Pato()
 perro: Perro = Perro()
 
 # Aunque 'pato' y 'perro' son de diferentes tipos,
 # ambos tienen un método 'hablar', por lo que podemos usarlos
-# de manera intercambiable en la función 'hacerHablar'
-hacerHablar(animal =pato)  # Imprime: ¡Cuac!
-hacerHablar(animal = perro)  # Imprime: ¡Guau!
+# de manera intercambiable en la función 'hacer_hablar'
+hacer_hablar(animal = pato)  # Imprime: ¡Cuac!
+hacer_hablar(animal = perro)  # Imprime: ¡Guau!
 
 """
-En este ejemplo, la función hacerHablar puede tomar cualquier objeto que tenga un método hablar. No importa si el objeto es un Pato o un Perro, siempre que tenga un método hablar, se puede usar en hacerHablar. Esto es un ejemplo de enlace dinámico, ya que el método específico hablar que se llama se decide en tiempo de ejecución.
+En este ejemplo, la función hacer_hablar puede tomar cualquier objeto que tenga un método hablar. No importa si el objeto es un Pato o un Perro, siempre que tenga un método hablar, se puede usar en hacer_hablar. Esto es un ejemplo de enlace dinámico, ya que el método específico hablar que se llama se decide en tiempo de ejecución.
 """
 
 

@@ -8,6 +8,10 @@ Duck Typing es un concepto en Python que se refiere a la idea de que no importa 
 """
 
 
+from sys import stdout
+from typing import Union
+
+
 class Pato:
     def __init__(self: 'Pato') -> None:
         return None
@@ -20,13 +24,12 @@ class Perro:
     def __init__(self: 'Perro') -> None:
         return None
 
-    def hablar(self: 'Perro') -> str:
-        return "¡Guau!"
+    def hablar(self: 'Perro') -> str: return "¡Guau!"
 
-
-def hacerHablar(Animal: Pato | Perro):
+def hacer_hablar(Animal: Union[Pato, Perro]) -> None:
     # No importa el tipo de 'Animal' mientras tenga un método 'hablar'
     print(Animal.hablar(),end="\n", file = stdout)
+    return None
 
 
 pato: Pato = Pato()
@@ -34,9 +37,9 @@ perro: Perro = Perro()
 
 # Aunque 'pato' y 'perro' son de diferentes tipos,
 # ambos tienen un método 'hablar', por lo que podemos usarlos
-# de manera intercambiable en la función 'hacerHablar'
+# de manera intercambiable en la función 'hacer_hablar'
 
-hacerHablar(Animal = pato)  # Imprime: ¡Cuac!
-hacerHablar(Animal = perro)  # Imprime: ¡Guau!
+hacer_hablar(Animal = pato)  # Imprime: ¡Cuac!
+hacer_hablar(Animal = perro)  # Imprime: ¡Guau!
 
-# En este ejemplo, la función hacerHablar puede tomar cualquier objeto que tenga un método hablar. No importa si el objeto es un Pato o un Perro, siempre que tenga un método hablar, se puede usar en hacerHablar. Esto es Duck Typing.
+# En este ejemplo, la función hacer_hablar puede tomar cualquier objeto que tenga un método hablar. No importa si el objeto es un Pato o un Perro, siempre que tenga un método hablar, se puede usar en hacer_hablar. Esto es Duck Typing.

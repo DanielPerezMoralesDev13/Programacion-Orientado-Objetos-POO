@@ -9,6 +9,8 @@ El polimorfismo de coerción, también conocido como polimorfismo ad hoc o polim
 """
 
 
+from sys import stdout
+
 def main() -> None:
     num1: int = 5
     num2: float = 6.5
