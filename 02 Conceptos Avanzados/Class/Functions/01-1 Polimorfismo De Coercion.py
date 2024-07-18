@@ -12,12 +12,12 @@ El polimorfismo de coerción, también conocido como polimorfismo ad hoc o polim
 def main() -> None:
     num1: int = 5
     num2: float = 6.5
-    print(f"Type: {type(num1)}",end="\n")
-    print(f"Type: {type(num2)}",end="\n")
+    print(f"Type: {type(num1)}",end="\n", file = stdout)
+    print(f"Type: {type(num2)}",end="\n", file = stdout)
 
     resultado: float = num1 + num2
-    print(resultado,end="\n")
-    print(f"Type: {type(resultado)}",end="\n")
+    print(resultado,end="\n", file = stdout)
+    print(f"Type: {type(resultado)}",end="\n", file = stdout)
     # En este caso resultado es un float porque el operador + esta sobrecargado para que cuando se le pase un int y un float el resultado sea un float
     return None
 

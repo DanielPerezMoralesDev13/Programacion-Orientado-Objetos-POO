@@ -4,6 +4,9 @@
 # GitHub: https://github.com/DanielPerezMoralesDev13
 # Correo electrónico: danielperezdev@proton.me 
 
+from sys import stdout
+
+
 class Celular:
     # atributos de instancia son aquellos atributos que se le asignan a cada objeto de la clase, es decir, cada objeto puede tener valores diferentes en sus atributos.
 
@@ -23,8 +26,8 @@ class Celular:
         return None
 
 
-celular1: Celular = Celular(marca="Xiaomi", modelo="Redmi Note 9", camara="64MP")
+celular1: Celular = Celular(marca = "Xiaomi", modelo = "Redmi Note 9", camara = "64MP")
 
-celular2: Celular = Celular(marca="Samsung", modelo="Galaxy A51", camara="48MP")
+celular2: Celular = Celular(marca = "Samsung", modelo = "Galaxy A51", camara = "48MP")
 
-print(celular1.marca,end="\n")
+print(celular1.marca,end = "\n", file = stdout)

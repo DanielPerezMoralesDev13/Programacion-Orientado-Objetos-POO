@@ -64,4 +64,4 @@ class NotificadorTwitter(Notificador):
         return f"Enviando email a {self.usuario.twitter}"
 
 notificacion: Notificador = Notificador(usuario = "Daniel", mensaje = "Hola, como estas?")
-print(notificacion.notificar(),end="\n")
+print(notificacion.notificar(),end="\n", file = stdout)

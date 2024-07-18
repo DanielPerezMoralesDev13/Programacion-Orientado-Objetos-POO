@@ -34,7 +34,7 @@ class Pinguino(Ave):
 def hacerVolar(ave: Ave = Ave) -> str:
     return ave.volar()
 
-print(hacerVolar(ave = Pinguino()),end="\n")
+print(hacerVolar(ave = Pinguino()),end="\n", file = stdout)
 """
 
 """

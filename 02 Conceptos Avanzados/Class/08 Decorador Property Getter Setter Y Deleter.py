@@ -38,10 +38,10 @@ class Persona:
 
 
 daniel: 'Persona' = Persona(nombre="Daniel", edad=20)
-print(daniel.nombre,end="\n")
+print(daniel.nombre,end="\n", file = stdout)
 daniel.nombre = "Benjamin"
 del daniel.nombre
-try: print(daniel.nombre,end="\n")
-except AttributeError: print("El atributo nombre ha sido eliminado",end="\n")
-else: print("El atributo nombre no ha sido eliminado",end="\n")
-finally: print("Fin del programa",end="\n")
+try: print(daniel.nombre,end="\n", file = stdout)
+except AttributeError: print("El atributo nombre ha sido eliminado",end="\n", file = stdout)
+else: print("El atributo nombre no ha sido eliminado",end="\n", file = stdout)
+finally: print("Fin del programa",end="\n", file = stdout)

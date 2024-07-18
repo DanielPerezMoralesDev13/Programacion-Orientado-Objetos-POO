@@ -5,7 +5,7 @@
 # Correo electrónico: danielperezdev@proton.me 
 
 """
-crear una clase estudiante con los siguientes atributos:
+Crear una clase estudiante con los siguientes atributos:
 nombre, edad y grado
 
 metodos:
@@ -15,9 +15,11 @@ debemos preguntarle al usuario si quiere que el estudiante estudie, si la respue
 """
 
 import os
+from sys import stdout
+from typing import Optional
 
 def borrar() -> None:
-    os.system(command="cls" if os.name == "nt" else "clear")
+    os.system(command = "cls" if os.name == "nt" else "clear")
     return None
 
 
@@ -29,8 +31,7 @@ class Estudiante:
         return None
 
 
-    def Estudiar(self: 'Estudiante') -> str:
-        return f"El estudiante {self.nombre} esta estudiando"
+    def Estudiar(self: 'Estudiante') -> str: return f"El estudiante {self.nombre} esta estudiando"
 
 
 nombre: str = str(input("Ingrese el nombre del estudiante: ")).capitalize()
@@ -39,20 +40,19 @@ while True:
     try:
         edad: int = int(input("Ingrese la edad del estudiante: "))
         break
-    except ValueError:
-        borrar()
+    except ValueError: borrar()
 grado: str = str(input("Ingrese el grado del estudiante: ")).lower()
 
-estudiante: Estudiante = Estudiante(nombre=nombre, edad=edad, grado=grado)
+estudiante: Estudiante = Estudiante(nombre = nombre, edad = edad, grado = grado)
 
 borrar()
-print(f"El Estudiante {estudiante.nombre}\nTiene {estudiante.edad} años\nY esta en el grado {estudiante.grado}",end="\n")
+print(f"El Estudiante {estudiante.nombre}\nTiene {estudiante.edad} años\nY esta en el grado {estudiante.grado}",end = "\n", file = stdout)
+
+preguntar: Optional[bool] = None
 
 while True:
     if preguntar := str(input("Quieres estudiar (SI/NO)")) == "si":
-        print(estudiante.Estudiar(),end="\n")
+        print(estudiante.Estudiar(),end = "\n", file = stdout)
         break
-    elif preguntar == "no":
-        break
-    else:
-        borrar()
+    elif preguntar == "no": break
+    else: borrar()

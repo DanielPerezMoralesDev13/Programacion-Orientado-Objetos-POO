@@ -71,11 +71,11 @@ danna: Trabajador = Trabajador(
     actividad = "cantante"
 )
 
-print(daniel.presentarse(),end="\n")
-print(daniel.hacerActividad(),end="\n")
+print(daniel.presentarse(),end="\n", file = stdout)
+print(daniel.hacerActividad(),end="\n", file = stdout)
 
-print(danna.presentarse(),end="\n")
-print(danna.hacerActividad(),end="\n")
+print(danna.presentarse(),end="\n", file = stdout)
+print(danna.hacerActividad(),end="\n", file = stdout)
 
 # si la clase no fuera abstracta, se podria crear un objeto de la clase Persona, pero como es abstracta, no se puede crear un objeto de esta clase. Ademas si no fuera abastracta el decorador abstractmethod no tendria sentido perderia su poder.
 

@@ -129,15 +129,15 @@ class Robot(Trabajador):
 
 
 humano: Humano = Humano()
-print(humano.trabajar(),end="\n")
-print(humano.comer(),end="\n")
-print(humano.dormir(),end="\n")
+print(humano.trabajar(),end="\n", file = stdout)
+print(humano.comer(),end="\n", file = stdout)
+print(humano.dormir(),end="\n", file = stdout)
 
 robot: Trabajador = Robot()
-print(robot.trabajar(),end="\n")
-try: print(robot.comer(),end="\n")  # !Da error porque la clase Robot no tiene el metodo comer
+print(robot.trabajar(),end="\n", file = stdout)
+try: print(robot.comer(),end="\n", file = stdout)  # !Da error porque la clase Robot no tiene el metodo comer
 except AttributeError as e:
-    print(e,end="\n")
+    print(e,end="\n", file = stdout)
 
 
 """

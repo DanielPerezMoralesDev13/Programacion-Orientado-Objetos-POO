@@ -25,17 +25,17 @@ edad: int ={self.edad}
 
 
 daniel: Persona = Persona(nombre="Daniel", edad=50)
-print(daniel,end="\n")
+print(daniel,end="\n", file = stdout)
 
 # __str__ es para el usuario final
 # __repr__ es para el programador
 
-# print(daniel.__str__(),end="\n")
+# print(daniel.__str__(),end="\n", file = stdout)
 repre: str = repr(daniel)
-print(repre,end="\n")
+print(repre,end="\n", file = stdout)
 resultado: Persona = eval(repre)
 
-print(resultado.nombre,end="\n")
+print(resultado.nombre,end="\n", file = stdout)
 
 """
 El código proporcionado muestra el uso de algunas funciones especiales en Python, como repr() y eval(), junto con la función print(),end="\n".

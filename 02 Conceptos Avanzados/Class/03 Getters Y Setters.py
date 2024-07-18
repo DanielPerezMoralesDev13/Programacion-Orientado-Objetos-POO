@@ -35,7 +35,7 @@ class Persona:
 Daniel: Persona = Persona(nombre="Daniel", edad=20)
 
 # Getters para obtener los valores de los atributos privados
-print(Daniel.getNombre(),end="\n")
+print(Daniel.getNombre(),end="\n", file = stdout)
 
 # Setters para modificar los valores de los atributos privados
 
@@ -43,4 +43,4 @@ print(Daniel.getNombre(),end="\n")
 Daniel.setNombre(nuevo_nombre="Benjamin")
 
 Daniel.__nombre = "Benjamin" # No se puede modificar el atributo privado de esta forma
-print(Daniel.getNombre(),end="\n")
+print(Daniel.getNombre(),end="\n", file = stdout)

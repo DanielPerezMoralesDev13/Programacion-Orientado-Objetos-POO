@@ -23,6 +23,9 @@ En python utilizamos:
 """
 
 
+from sys import stdout
+
+
 class Celular:
     # cada clase puede tener uno o mas atributos, y estos atributos pueden ser de cualquier tipo de dato, incluso pueden ser de otro tipo de dato compuesto, como por ejemplo una lista, un diccionario, una tupla, etc.
 
@@ -37,13 +40,13 @@ class Celular:
 
 celular1: Celular = Celular()
 
-print(celular1,end="\n")
+print(celular1,end="\n", file = stdout)
 # nos imprime la direccion de memoria donde se encuentra el objeto celular1
 
 # para acceder a los atributos de un objeto, se utiliza la siguiente sintaxis:
-print(celular1.marca,end="\n")
-print(celular1.modelo,end="\n")
-print(celular1.camara,end="\n")
+print(celular1.marca,end="\n", file = stdout)
+print(celular1.modelo,end="\n", file = stdout)
+print(celular1.camara,end="\n", file = stdout)
 
 # tambien podemos crear mas objetos de la misma clase, y cada objeto puede tener valores diferentes en sus atributos.
 
@@ -51,12 +54,12 @@ celular2: Celular = Celular()
 celular3: Celular = Celular()
 celular4: Celular = Celular()
 
-print(celular4.marca,end="\n")
+print(celular4.marca,end="\n", file = stdout)
 
 # tambien podemos modificar los valores de los atributos de un objeto, de la siguiente manera:
 celular4.marca = "Xiaomi"
 
-print(celular4.marca,end="\n")
+print(celular4.marca,end="\n", file = stdout)
 
-print(celular4,end="\n")
-# <__main__.Celular object at 0x7f4fa2f03f10> ese __main__ es el nombre del archivo donde se encuentra la clase, y el 0x7f4fa2f03f10 es la direccion de memoria donde se encuentra el objeto celular4
+print(celular4,end="\n", file = stdout)
+# <__main__.Celular object at 0x7f4fa2f03f10> ese __main__ es el nombre del fichero donde se encuentra la clase, y el 0x7f4fa2f03f10 es la direccion de memoria donde se encuentra el objeto celular4

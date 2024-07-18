@@ -40,5 +40,5 @@ animal1: Animal = Gato()
 # Tipo real: Perro
 animal2: Animal = Perro()
 
-print(animal1.sonido(),end="\n")  # Imprime "Miau"
-print(animal2.sonido(),end="\n")  # Imprime "Guau"
+print(animal1.sonido(),end="\n", file = stdout)  # Imprime "Miau"
+print(animal2.sonido(),end="\n", file = stdout)  # Imprime "Guau"

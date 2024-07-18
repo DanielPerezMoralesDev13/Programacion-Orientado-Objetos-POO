@@ -50,5 +50,5 @@ class Perro(Animal):
 Gatito: Gato = Gato()
 Perrito: Perro = Perro()
 
-print(Gatito.Sonido(),end="\n")
-print(Perrito.Sonido(),end="\n")
+print(Gatito.Sonido(),end="\n", file = stdout)
+print(Perrito.Sonido(),end="\n", file = stdout)

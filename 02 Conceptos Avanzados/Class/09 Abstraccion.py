@@ -21,13 +21,13 @@ class Auto:
     
     def encender(self: 'Auto') -> None:
         self._estado = "encendido"
-        print("El auto esta encendido",end="\n")
+        print("El auto esta encendido",end="\n", file = stdout)
         return None
     
     def conducir(self: 'Auto') -> None:
         if self._estado == "apagado":
             self.encender()
-        print("Conduciendo el auto",end="\n")
+        print("Conduciendo el auto",end="\n", file = stdout)
 
 mi_auto: Auto = Auto()
 mi_auto.conducir()

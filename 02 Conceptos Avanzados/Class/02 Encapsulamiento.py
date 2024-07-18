@@ -55,11 +55,11 @@ class MiClase:
 
 
 objeto: MiClase = MiClase()
-print(objeto.getFuncionMetodoPrivado(),end="\n") # se puede acceder a un metodo privado mediante un metodo publico
-print(objeto.atributo_publico,end="\n")  # se puede acceder a un atributo publico
-print(objeto._atributo_protegido,end="\n")  # se puede acceder a un atributo protegido
+print(objeto.getFuncionMetodoPrivado(),end="\n", file = stdout) # se puede acceder a un metodo privado mediante un metodo publico
+print(objeto.atributo_publico,end="\n", file = stdout)  # se puede acceder a un atributo publico
+print(objeto._atributo_protegido,end="\n", file = stdout)  # se puede acceder a un atributo protegido
 # print(objeto.__atributo_privado) # no se puede acceder a un atributo privado
 
-print(objeto.metodoPublico(),end="\n")  # se puede acceder a un metodo publico
-print(objeto._metodoProtegido(),end="\n")  # se puede acceder a un metodo protegido
-# print(objeto.__metodoprivado(),end="\n") # no se puede acceder a un metodo privado
+print(objeto.metodoPublico(),end="\n", file = stdout)  # se puede acceder a un metodo publico
+print(objeto._metodoProtegido(),end="\n", file = stdout)  # se puede acceder a un metodo protegido
+# print(objeto.__metodoprivado(),end="\n", file = stdout) # no se puede acceder a un metodo privado

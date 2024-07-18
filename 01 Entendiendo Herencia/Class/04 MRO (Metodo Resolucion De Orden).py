@@ -35,18 +35,18 @@ class D(B, C):
         return "Hola soy la clase D"
 
 letra: D = D()
-print(letra.Hablar(),end="\n")
-print(D.__mro__,end="\n")
+print(letra.Hablar(),end="\n", file = stdout)
+print(D.__mro__,end="\n", file = stdout)
 # el metodo mro nos dice el orden en el que se van a ejecutar los metodos y atributos de las clases que estan involucradas en la herencia multiple
 
 # la salida es: (<class '__main__.D'>, <class '__main__.B'>, <class '__main__.A'>, <class '__main__.C'>, <class '__main__.F'>, <class 'object'>) object es la clase padre de todas las clases por eso aparece al final en python todo es un objeto
 
-print(letra.__class__,end="\n")
+print(letra.__class__,end="\n", file = stdout)
 # el metodo __class__ nos dice la clase a la que pertenece el objeto
 
 
 # Si queremos llamar un metodo de una clase especifica podemos hacerlo de esta manera
-print(B.Hablar(self=letra),end="\n")
+print(B.Hablar(self=letra),end="\n", file = stdout)
 # la salida es: Hola soy la clase B porque estamos llamando el metodo de la clase B pasandole como parametro el objeto letra que es de la clase D. No es necesario que la clase del objeto tenga heredada la clase B para poder llamar el metodo de la clase B
 
 """

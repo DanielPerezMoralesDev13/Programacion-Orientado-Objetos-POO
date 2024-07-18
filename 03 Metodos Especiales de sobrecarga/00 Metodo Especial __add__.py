@@ -41,8 +41,8 @@ messi: Persona = Persona(nombre="Messi", edad=35)
 
 nueva_persona: Persona = daniel + neymar + messi
 
-print(nueva_persona,end="\n")
+print(nueva_persona,end="\n", file = stdout)
 
-print(nueva_persona.nombre,end="\n")
+print(nueva_persona.nombre,end="\n", file = stdout)
 
-print(nueva_persona.edad,end="\n")
+print(nueva_persona.edad,end="\n", file = stdout)

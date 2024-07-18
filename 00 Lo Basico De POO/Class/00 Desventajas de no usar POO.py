@@ -4,7 +4,7 @@
 # GitHub: https://github.com/DanielPerezMoralesDev13
 # Correo electrónico: danielperezdev@proton.me 
 from typing import List
-from sys import exit
+from sys import exit, stdout
 
 def main() -> None:
     celular1_marca: str = "huawei"
@@ -24,7 +24,7 @@ def main() -> None:
     celular2_camara_frontal: str = "24mp"
     celular3_camara_frontal: str = "8mp"
 
-    print(celular1_camara_frontal,end="\n")
+    print(celular1_camara_frontal,end="\n", file = stdout)
 
     # Es imposible manejar los datos de esta manera, ya que si se quiere agregar un nuevo celular, se tendria que crear una nueva variable para cada uno de los atributos del celular, y esto se vuelve muy tedioso y dificil de manejar, por eso es que se utiliza la POO, para poder manejar los datos de una manera mas facil y ordenada.
 

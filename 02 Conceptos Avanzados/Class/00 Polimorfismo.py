@@ -32,8 +32,8 @@ class Perro:
 Gatito: Gato = Gato()
 Perrito: Perro = Perro()
 
-print(Gatito.sonido(),end="\n")
-print(Perrito.sonido(),end="\n")
+print(Gatito.sonido(),end="\n", file = stdout)
+print(Perrito.sonido(),end="\n", file = stdout)
 # Ambos objetos tienen el mismo metodo pero cada uno lo ejecuta de manera diferente, esto es polimorfismo
 
 # Si hacemos este codigo en cualquiera de los lenguages de tipado estatico, nos daria un error ya que varias clases no pueden tener el mismo metodo, pero en python si se puede

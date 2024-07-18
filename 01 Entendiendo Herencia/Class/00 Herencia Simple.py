@@ -104,5 +104,5 @@ daniel = Empleado(
     salario=1000.00,
 )
 
-print(daniel.nacionalidad,end="\n")
-print(daniel.Hablar(),end="\n")
+print(daniel.nacionalidad,end="\n", file = stdout)
+print(daniel.Hablar(),end="\n", file = stdout)

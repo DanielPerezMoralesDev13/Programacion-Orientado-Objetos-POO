@@ -85,10 +85,10 @@ el valor que nos va a retornar es un booleano, True si es subclase y False si no
 """
 
 herencia: bool = issubclass(EmpleadoArtista, Persona)
-print(f"¿Es EmpleadoArtista subclase de Persona?: {'Si' if (herencia == True) else 'No'}",end="\n")
+print(f"¿Es EmpleadoArtista subclase de Persona?: {'Si' if (herencia == True) else 'No'}",end="\n", file = stdout)
 
 herencia = issubclass(Artista, Persona)
-print(f"¿Es Artista subclase de Persona?: {'Si' if (herencia == True) else 'No'}",end="\n")
+print(f"¿Es Artista subclase de Persona?: {'Si' if (herencia == True) else 'No'}",end="\n", file = stdout)
 
 # para saber si un objeto es una instancia de una clase, podemos usar la funcion isinstance() y pasarle como primer argumento el objeto que queremos saber si es instancia de una clase y como segundo argumento la clase de la cual queremos saber si es instancia.
 
@@ -98,23 +98,23 @@ instancia = isinstance(objeto, clase_de_la_cual_queremos_saber_si_es_instancia)
 """
 
 instancia = isinstance(Daniel, EmpleadoArtista)
-print(f"¿Es Daniel una instancia de EmpleadoArtista?: {'Si' if (instancia == True) else 'No'}",end="\n")
+print(f"¿Es Daniel una instancia de EmpleadoArtista?: {'Si' if (instancia == True) else 'No'}",end="\n", file = stdout)
 # la razon por la cual Daniel es una instancia de EmpleadoArtista es porque Daniel es un objeto de la clase EmpleadoArtista.
 
 instancia = isinstance(Daniel, Artista)
-print(f"¿Es Daniel una instancia de Artista?: {'Si' if (instancia == True) else 'No'}",end="\n")
+print(f"¿Es Daniel una instancia de Artista?: {'Si' if (instancia == True) else 'No'}",end="\n", file = stdout)
 # la razon por la cual Daniel es una instancia de Artista es porque la clase EmpleadoArtista hereda los atributos de la clase Artista.
 
 instancia = isinstance(Daniel, Persona)
-print(f"¿Es Daniel una instancia de Persona?: {'Si' if (instancia == True) else 'No'}",end="\n")
+print(f"¿Es Daniel una instancia de Persona?: {'Si' if (instancia == True) else 'No'}",end="\n", file = stdout)
 # la razon por la cual Daniel es una instancia de Persona es porque la clase EmpleadoArtista hereda los atributos de la clase Persona.
 
 instancia = isinstance(Danna, EmpleadoArtista)
-print(f"¿Es Danna una instancia de EmpleadoArtista?: {'Si' if (instancia == True) else 'No'}",end="\n")
+print(f"¿Es Danna una instancia de EmpleadoArtista?: {'Si' if (instancia == True) else 'No'}",end="\n", file = stdout)
 # la razon por la cual Danna no es una instancia de EmpleadoArtista es porque Danna es un objeto de la clase Artista y la clase Artista no hereda los atributos de la clase EmpleadoArtista.
 
 instancia = isinstance(Danna, Persona)
-print(f"¿Es Danna una instancia de Persona?: {'Si' if (instancia == True) else 'No'}",end="\n")
+print(f"¿Es Danna una instancia de Persona?: {'Si' if (instancia == True) else 'No'}",end="\n", file = stdout)
 
 instancia = isinstance(Danna, Artista)
-print(f"¿Es Danna una instancia de Artista?: {'Si' if (instancia == True) else 'No'}",end="\n")
+print(f"¿Es Danna una instancia de Artista?: {'Si' if (instancia == True) else 'No'}",end="\n", file = stdout)

@@ -28,7 +28,7 @@ class Perro(Animal):
 
 def hacerHablar(animal: Pato | Perro):
     # No importa el tipo de 'animal' mientras tenga un método 'hablar'
-    print(animal.hablar(),end="\n")
+    print(animal.hablar(),end="\n", file = stdout)
 
 pato: Pato = Pato()
 perro: Perro = Perro()

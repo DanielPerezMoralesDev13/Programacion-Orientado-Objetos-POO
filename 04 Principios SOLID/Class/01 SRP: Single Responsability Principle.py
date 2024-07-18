@@ -49,24 +49,24 @@ class Auto:
 
 tanque: TanqueCombustible = TanqueCombustible()
 mi_auto: Auto = Auto(tanque = tanque)
-print(mi_auto.obtenerPosicion(),end="\n")
+print(mi_auto.obtenerPosicion(),end="\n", file = stdout)
 
-print(mi_auto.mover(distancia = 10),end="\n")
+print(mi_auto.mover(distancia = 10),end="\n", file = stdout)
 
-print(mi_auto.obtenerPosicion(),end="\n")
+print(mi_auto.obtenerPosicion(),end="\n", file = stdout)
 
-print(mi_auto.mover(distancia = 20),end="\n")
+print(mi_auto.mover(distancia = 20),end="\n", file = stdout)
 
-print(mi_auto.obtenerPosicion(),end="\n")
+print(mi_auto.obtenerPosicion(),end="\n", file = stdout)
 
-print(mi_auto.mover(distancia = 60),end="\n")
+print(mi_auto.mover(distancia = 60),end="\n", file = stdout)
 
-print(mi_auto.obtenerPosicion(),end="\n")
+print(mi_auto.obtenerPosicion(),end="\n", file = stdout)
 
-print(mi_auto.mover(distancia = 100),end="\n")
+print(mi_auto.mover(distancia = 100),end="\n", file = stdout)
 
-print(mi_auto.obtenerPosicion(),end="\n")
+print(mi_auto.obtenerPosicion(),end="\n", file = stdout)
 
-print(mi_auto.mover(distancia = 100),end="\n")
+print(mi_auto.mover(distancia = 100),end="\n", file = stdout)
 
-print(mi_auto.obtenerPosicion(),end="\n")
+print(mi_auto.obtenerPosicion(),end="\n", file = stdout)

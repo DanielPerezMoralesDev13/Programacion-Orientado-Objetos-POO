@@ -44,6 +44,6 @@ class Murcielago(Mamifero,Ave):
 
 Murcielagito: Murcielago = Murcielago()
 
-print(Murcielagito.Comer(),end="\n")
-print(Murcielagito.Amamantar(),end="\n")
-print(Murcielagito.Volar(),end="\n")
+print(Murcielagito.Comer(),end="\n", file = stdout)
+print(Murcielagito.Amamantar(),end="\n", file = stdout)
+print(Murcielagito.Volar(),end="\n", file = stdout)

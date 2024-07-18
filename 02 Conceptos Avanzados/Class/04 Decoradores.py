@@ -7,15 +7,15 @@
 from typing import Callable
 def decorador(funcion: Callable) -> Callable:
     def funcionModificada() -> None:
-        print("Antes de ejecutar la funcion",end="\n")
+        print("Antes de ejecutar la funcion",end="\n", file = stdout)
         funcion()
-        print("Despues de ejecutar la funcion",end="\n")
+        print("Despues de ejecutar la funcion",end="\n", file = stdout)
         return None
     return funcionModificada
 
 
 def saludo() -> None:
-    print("Hola Daniel",end="\n")
+    print("Hola Daniel",end="\n", file = stdout)
     return None
 
 saludo_modificado: Callable = decorador(funcion=saludo)
