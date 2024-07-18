@@ -8,6 +8,9 @@
 El metodo especial __add__ se usa para sobrecargar el operador + y se usa para sumar dos objetos y retornar un nuevo objeto con el resultado de la suma de los dos objetos que se sumaron. 
 """
 
+from sys import stdout
+
+
 class Persona:
     def __init__(self: 'Persona', nombre: str, edad: int) -> None:
         self.nombre: str = nombre
@@ -28,9 +31,9 @@ edad: int ={self.edad}
         return f"Persona('{self.nombre}', {self.edad})"
 
     def __add__(self: 'Persona', otro: 'Persona') -> 'Persona':
-        nuevo_valor: int = self.edad + otro.edad
-        # return f"{nuevo_valor}"
-        return Persona(self.nombre + otro.nombre, nuevo_valor)
+        nuevoValor: int = self.edad + otro.edad
+        # return f"{nuevoValor}"
+        return Persona(self.nombre + otro.nombre, nuevoValor)
 
 
 daniel: Persona = Persona(nombre="Daniel", edad=18)
@@ -39,10 +42,10 @@ neymar: Persona = Persona(nombre="Neymar", edad=32)
 
 messi: Persona = Persona(nombre="Messi", edad=35)
 
-nueva_persona: Persona = daniel + neymar + messi
+nuevaPersona: Persona = daniel + neymar + messi
 
-print(nueva_persona,end="\n", file = stdout)
+print(nuevaPersona,end="\n", file = stdout)
 
-print(nueva_persona.nombre,end="\n", file = stdout)
+print(nuevaPersona.nombre,end="\n", file = stdout)
 
-print(nueva_persona.edad,end="\n", file = stdout)
+print(nuevaPersona.edad,end="\n", file = stdout)
