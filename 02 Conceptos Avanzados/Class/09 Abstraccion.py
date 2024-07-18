@@ -14,6 +14,9 @@ Un metodo abstracto es un metodo que se declara pero no se implementa, es decir,
 Para crear una clase abstracta en python, se debe importar el modulo abc (Abstract Base Class) y heredar de la clase ABC. Para crear un metodo abstracto, se debe importar el decorador abstractmethod del modulo abc y decorar el metodo con este decorador.
 """
 
+from sys import stdout
+
+
 class Auto:
     def __init__(self: 'Auto') -> None:
         self._estado: str = "apagado"
@@ -29,5 +32,5 @@ class Auto:
             self.encender()
         print("Conduciendo el auto",end="\n", file = stdout)
 
-mi_auto: Auto = Auto()
-mi_auto.conducir()
+miAuto: Auto = Auto()
+miAuto.conducir()

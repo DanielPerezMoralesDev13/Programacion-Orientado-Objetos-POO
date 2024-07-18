@@ -4,6 +4,9 @@
 # GitHub: https://github.com/DanielPerezMoralesDev13
 # Correo electrónico: danielperezdev@proton.me
 
+from sys import stdout
+
+
 class Persona:
     def __init__(self: 'Persona', nombre: str, edad: int) -> None:
         self.nombre: str = nombre
@@ -20,8 +23,7 @@ edad: int ={self.edad}
     # debe retornar un string que sea valido para crear un objeto el formato es el siguiente.
 
     # Clase(parametros) si el parametro es un string se debe usar comillas simples o dobles y si es un numero no se debe usar comillas
-    def __repr__(self: 'Persona') -> str:
-        return f"Persona('{self.nombre}', {self.edad})"
+    def __repr__(self: 'Persona') -> str: return f"Persona('{self.nombre}', {self.edad})"
 
 
 daniel: Persona = Persona(nombre="Daniel", edad=50)

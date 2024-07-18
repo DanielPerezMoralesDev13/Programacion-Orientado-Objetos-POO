@@ -10,6 +10,9 @@
 Ademas de que accedemos a el como si fuera un atributo, al llamarlo no es necesario poner los parentesis.
 """
 
+from sys import stdout
+
+
 class Persona:
     def __init__(self: 'Persona', nombre: str, edad: int) -> None:
         self.__nombre: str = nombre
@@ -25,8 +28,8 @@ class Persona:
     @nombre.setter
     # Setter
     # Ponemos nombre.setter para que sepa que es el setter del atributo nombre lo que hace es cambiar el valor del atributo ademas de que no es necesario poner los parentesis al llamarlo
-    def nombre(self: 'Persona', nuevo_nombre: str) -> None:
-        self.__nombre = nuevo_nombre
+    def nombre(self: 'Persona', nuevoNombre: str) -> None:
+        self.__nombre = nuevoNombre
         return None
 
     @nombre.deleter

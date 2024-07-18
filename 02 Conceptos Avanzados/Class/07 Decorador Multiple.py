@@ -4,22 +4,23 @@
 # GitHub: https://github.com/DanielPerezMoralesDev13
 # Correo electrónico: danielperezdev@proton.me
 
+from sys import stdout
 from typing import Callable
 
 def decorador_one(funcion: Callable[[], None]) -> Callable[[], None]:
     def funcion_interna() -> None:
-        print("Decorador 1 antes de la ejecución de la función")
+        print("Decorador 1 antes de la ejecución de la función", end="\n", file = stdout)
         funcion()
-        print("Decorador 1 después de la ejecución de la función")
+        print("Decorador 1 después de la ejecución de la función", end="\n", file = stdout)
         return None
     return funcion_interna
 
 
 def decorador_two(funcion: Callable[[], None]) -> Callable[[], None]:
     def funcion_interna() -> None:
-        print("Decorador 2 antes de la ejecución de la función")
+        print("Decorador 2 antes de la ejecución de la función", end="\n", file = stdout)
         funcion()
-        print("Decorador 2 después de la ejecución de la función")
+        print("Decorador 2 después de la ejecución de la función", end="\n", file = stdout)
         return None
 
     return funcion_interna
@@ -28,7 +29,7 @@ def decorador_two(funcion: Callable[[], None]) -> Callable[[], None]:
 @decorador_one
 @decorador_two
 def saludo() -> None:
-    print("¡Hola!")
+    print("¡Hola!", end="\n", file = stdout)
     return None
 
 saludo()

@@ -9,6 +9,8 @@ Las clases abstractas se crean a traves del modulo abc y heredando de la clase A
 """
 
 from abc import ABC, abstractmethod
+from sys import stdout
+from typing import Optional
 
 # abc: Modulo que contiene la clase ABC y el decorador abstractmethod.
 # abstractmethod: Decorador para declarar un metodo abstracto.
@@ -27,11 +29,9 @@ class Persona(ABC):
         return None
 
     @abstractmethod
-    def hacerActividad(self: 'Persona') -> None | str:
-        return None
+    def hacer_actividad(self: 'Persona') -> Optional[str]: return None
 
-    def presentarse(self: 'Persona') -> str:
-        return f"Hola, mi nombre es {self.nombre}, tengo {self.edad} años, soy {self.sexo} y trabajo como {self.trabajo}"
+    def presentarse(self: 'Persona') -> str: return f"Hola, mi nombre es {self.nombre}, tengo {self.edad} años, soy {self.sexo} y trabajo como {self.trabajo}"
 
 
 class Estudiante(Persona):
@@ -43,8 +43,7 @@ class Estudiante(Persona):
         )
         return None
 
-    def hacerActividad(self: 'Estudiante') -> str:
-        return f"Estoy estudiando {self.actividad}"
+    def hacer_actividad(self: 'Estudiante') -> str: return f"Estoy estudiando {self.actividad}"
 
 class Trabajador(Persona):
     def __init__(
@@ -52,8 +51,8 @@ class Trabajador(Persona):
     ) -> None:
         super().__init__(nombre = nombre, edad = edad, sexo = sexo, trabajo = trabajo, actividad = actividad)
         return None
-    def hacerActividad(self: 'Trabajador') -> str:
-        return f"Actualmente estoy trabajando como {self.trabajo}"
+    
+    def hacer_actividad(self: 'Trabajador') -> str: return f"Actualmente estoy trabajando como {self.trabajo}"
 
 daniel: Estudiante = Estudiante(
     nombre = "Daniel",
@@ -72,10 +71,10 @@ danna: Trabajador = Trabajador(
 )
 
 print(daniel.presentarse(),end="\n", file = stdout)
-print(daniel.hacerActividad(),end="\n", file = stdout)
+print(daniel.hacer_actividad(),end="\n", file = stdout)
 
 print(danna.presentarse(),end="\n", file = stdout)
-print(danna.hacerActividad(),end="\n", file = stdout)
+print(danna.hacer_actividad(),end="\n", file = stdout)
 
 # si la clase no fuera abstracta, se podria crear un objeto de la clase Persona, pero como es abstracta, no se puede crear un objeto de esta clase. Ademas si no fuera abastracta el decorador abstractmethod no tendria sentido perderia su poder.
 

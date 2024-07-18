@@ -14,29 +14,26 @@ Por lo tanto, podemos agregar nuevos métodos y atributos a la Clase decorada. P
 """
 >>> En algunos casos mypy esta utilidad dara muchos problemas para estos casos la solucion es tiparlo con Any
 """
-from typing import Any
+from typing import Any, Type
 
-def decoradorClases(Clase: Any) -> Any:
+def decoradorClases(Clase: Type[Any]) -> Type[Any]:
     class NuevaClase(Clase):
-        def __init__(self: Any, nombre: str = "Daniel") -> None:
+        def __init__(self: "NuevaClase", nombre: str = "Daniel") -> None:
             self.nombre: str = nombre
             super().__init__()
             return None
-        def nuevaFuncion(self: 'Clase') -> str:
-            return "Esta es una nueva función en la Clase decorada"
-    return NuevaClase
 
+        def nueva_funcion(self: 'NuevaClase') -> str: return "Esta es una nueva función en la Clase decorada"
+    return NuevaClase
 @decoradorClases
 class MiClase:
-    def __init__(self: 'MiClase') -> None:
-        return None
+    def __init__(self: 'MiClase') -> None: return None
 
-    def funcionOriginal(self: 'MiClase') -> str:
-        return "Esta es la función original de la Clase"
+    def funcion_original(self: 'MiClase') -> str: return "Esta es la función original de la Clase"
 
 # Crear una instancia de la Clase decorada
 objeto: Any = MiClase()
 
 # Llamar a las funciones
-print(objeto.funcionOriginal(), end="\n")  # Imprime "Esta es la función original de la Clase"
-print(objeto.nuevaFuncion(), end="\n")  # Imprime "Esta es una nueva función en la Clase decorada"  # type: ignore
+print(objeto.funcion_original(), end="\n")  # Imprime "Esta es la función original de la Clase"
+print(objeto.nueva_funcion(), end="\n")  # Imprime "Esta es una nueva función en la Clase decorada"  # type: ignore
