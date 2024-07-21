@@ -13,6 +13,9 @@ SRP": "Single Responsability Principle" Significa en español Principio de respo
 """
 
 
+from sys import stdout
+
+
 class TanqueCombustible:
     def __init__(self: 'TanqueCombustible') -> None:
         self.combustible: int = 100
@@ -36,37 +39,37 @@ class Auto:
         return None
 
     def mover(self: 'Auto', distancia: int) -> str:
-        if self.tanque.obtenerCombustible() >= distancia / 2:
-            self.posicion += distancia
-            self.tanque.usarCombustible(cantidad = distancia // 2)
-            return "Has movido el auto exitosamente"
-        else:
+        if not self.tanque.obtenerCombustible() >= distancia / 2:
             return "No hay suficiente combustible"
+        
+        self.posicion += distancia
+        self.tanque.usarCombustible(cantidad = distancia // 2)
+        return "Has movido el auto exitosamente"
+        
 
-    def obtenerPosicion(self: 'Auto') -> int:
-        return self.posicion
+    def obtener_posicion(self: 'Auto') -> int: return self.posicion
 
 
 tanque: TanqueCombustible = TanqueCombustible()
-mi_auto: Auto = Auto(tanque = tanque)
-print(mi_auto.obtenerPosicion(),end="\n", file = stdout)
+miAuto: Auto = Auto(tanque = tanque)
+print(miAuto.obtener_posicion(),end="\n", file = stdout)
 
-print(mi_auto.mover(distancia = 10),end="\n", file = stdout)
+print(miAuto.mover(distancia = 10),end="\n", file = stdout)
 
-print(mi_auto.obtenerPosicion(),end="\n", file = stdout)
+print(miAuto.obtener_posicion(),end="\n", file = stdout)
 
-print(mi_auto.mover(distancia = 20),end="\n", file = stdout)
+print(miAuto.mover(distancia = 20),end="\n", file = stdout)
 
-print(mi_auto.obtenerPosicion(),end="\n", file = stdout)
+print(miAuto.obtener_posicion(),end="\n", file = stdout)
 
-print(mi_auto.mover(distancia = 60),end="\n", file = stdout)
+print(miAuto.mover(distancia = 60),end="\n", file = stdout)
 
-print(mi_auto.obtenerPosicion(),end="\n", file = stdout)
+print(miAuto.obtener_posicion(),end="\n", file = stdout)
 
-print(mi_auto.mover(distancia = 100),end="\n", file = stdout)
+print(miAuto.mover(distancia = 100),end="\n", file = stdout)
 
-print(mi_auto.obtenerPosicion(),end="\n", file = stdout)
+print(miAuto.obtener_posicion(),end="\n", file = stdout)
 
-print(mi_auto.mover(distancia = 100),end="\n", file = stdout)
+print(miAuto.mover(distancia = 100),end="\n", file = stdout)
 
-print(mi_auto.obtenerPosicion(),end="\n", file = stdout)
+print(miAuto.obtener_posicion(),end="\n", file = stdout)

@@ -75,6 +75,8 @@ Para solucionar este problema se puede crear una clase abstracta que tenga los m
 """
 
 from abc import ABC, abstractmethod
+from sys import stdout, exit
+from typing import Optional
 
 class Trabajador(ABC):
     @abstractmethod
@@ -82,7 +84,7 @@ class Trabajador(ABC):
         return None
 
     @abstractmethod
-    def trabajar(self: 'Trabajador') -> str | None:
+    def trabajar(self: 'Trabajador') -> Optional[str]:
         return None
 
 class Comedor(ABC):
@@ -91,7 +93,7 @@ class Comedor(ABC):
         return None
 
     @abstractmethod
-    def comer(self: 'Comedor') -> str | None:
+    def comer(self: 'Comedor') -> Optional[str]:
         return None
 
 
@@ -101,7 +103,7 @@ class Dormidor(ABC):
         return None
 
     @abstractmethod
-    def dormir(self: 'Dormidor') -> str | None:
+    def dormir(self: 'Dormidor') -> Optional[str]:
         return None
 
 class Humano(Trabajador, Comedor, Dormidor):
@@ -111,21 +113,20 @@ class Humano(Trabajador, Comedor, Dormidor):
         Dormidor.__init__(self = self)
         return None
 
-    def comer(self: 'Humano') -> str | None:
+    def comer(self: 'Humano') -> Optional[str]:
         return "El humano comiendo"
 
-    def trabajar(self: object) -> str | None:
+    def trabajar(self: object) -> Optional[str]:
         return "El humano esta trabajando"
 
-    def dormir(self: object) -> str | None:
+    def dormir(self: object) -> Optional[str]:
         return "El humano durmiendo"
 
 class Robot(Trabajador):
     def __init__(self: 'Robot') -> None:
         return None
 
-    def trabajar(self: 'Robot') -> str | None:
-        return "El robot esta trabajando"
+    def trabajar(self: 'Robot') -> Optional[str]: return "El robot esta trabajando"
 
 
 humano: Humano = Humano()
@@ -134,8 +135,15 @@ print(humano.comer(),end="\n", file = stdout)
 print(humano.dormir(),end="\n", file = stdout)
 
 robot: Trabajador = Robot()
+# Necesario para que MyPy no de error
+# error: "Trabajador" has no attribute "comer"  [attr-defined]
+# Comentar la linea 141 de ser necesario
+if not isinstance(robot, Comedor): exit(1)
+
 print(robot.trabajar(),end="\n", file = stdout)
-try: print(robot.comer(),end="\n", file = stdout)  # !Da error porque la clase Robot no tiene el metodo comer
+try: 
+    print(robot.comer(),end="\n", file = stdout)  # !Da error porque la clase Robot no tiene el metodo comer
+
 except AttributeError as e:
     print(e,end="\n", file = stdout)
 

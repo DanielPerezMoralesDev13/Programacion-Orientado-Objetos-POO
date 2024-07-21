@@ -31,10 +31,10 @@ class Pinguino(Ave):
     def volar(self: 'Pinguino') -> str:
         return "No puedo volar"
 
-def hacerVolar(ave: Ave = Ave) -> str:
+def hacer_volar(ave: Ave = Ave) -> str:
     return ave.volar()
 
-print(hacerVolar(ave = Pinguino()),end="\n", file = stdout)
+print(hacer_volar(ave = Pinguino()),end="\n", file = stdout)
 """
 
 """

@@ -13,7 +13,7 @@ lista: Dict[str, str] = {
 
     "Legibilidad": "El software debe ser legible para que sea facil de entender y de mantener que lo entienda cualquier programador con comentarios, nombres de variables, etc",
 
-    "Extensibilidad": "El software debe ser extensible para que sea facil de extender y de mantener sin afectar el funcionamiento del sistema",
+    "Extensibilidad": "El software debe ser extensible para que sea facil de extender y de mantener sin afectar el funcionamiento del sistema"
 }
 
 # SOLID Estos principios se crearon para que el codigo sea mantenible, reutilizable, legible y extensible
@@ -22,5 +22,5 @@ solid: Dict[str, str] = {
     "OCP": "Open Closed Principle",
     "LSP": "Liskov Substitution Principle",
     "ISP": "Interface Segregation Principle",
-    "DIP": "Dependency Inversion Principle",
+    "DIP": "Dependency Inversion Principle"
 }

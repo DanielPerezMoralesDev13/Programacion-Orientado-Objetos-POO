@@ -17,14 +17,15 @@ Este principio evita que los desarrolladores modifiquen una clase y que afecte e
 
 # Ejemplo de un sistema de notificaciones" que notifique a los usuarios por email, sms, whatsapp, twitter, etc
 
-from typing import Any
+from sys import stdout
+from typing import Any, NoReturn, Union
 class Notificador:
     def __init__(self: 'Notificador', usuario: Any, mensaje: str) -> None:
         self.usuario: Any = usuario
         self.mensaje: str = mensaje
         return None
 
-    def notificar(self: 'Notificador') -> Any:
+    def notificar(self: 'Notificador') -> Union[NoReturn, str]:
         raise NotImplementedError("Este metodo debe ser implementado en la subclase")
 
 class NotificadorEmail(Notificador):
@@ -32,7 +33,7 @@ class NotificadorEmail(Notificador):
         super().__init__(usuario = usuario, mensaje = mensaje)
         return None
 
-    def notificar(self: 'NotificadorEmail') -> str:
+    def notificar(self: 'NotificadorEmail') -> Union[NoReturn, str]:
         # Recordablemente que usuario sea un objeto y que tenga un atributo email
         return f"Enviando email a {self.usuario.email}"
 
@@ -41,7 +42,7 @@ class NotificadorSMS(Notificador):
         super().__init__(usuario = usuario, mensaje = mensaje)
         return None
 
-    def notificar(self: 'NotificadorSMS') -> str:
+    def notificar(self: 'NotificadorSMS') -> Union[NoReturn, str]:
         # Recordablemente que usuario sea un objeto y que tenga un atributo sms
         return f"Enviando email a {self.usuario.sms}"
 
@@ -50,7 +51,7 @@ class NotificadorWhatsApp(Notificador):
         super().__init__(usuario = usuario, mensaje = mensaje)
         return None
 
-    def notificar(self: 'NotificadorWhatsApp') -> str:
+    def notificar(self: 'NotificadorWhatsApp') -> Union[NoReturn, str]:
         # Recordablemente que usuario sea un objeto y que tenga un atributo whatsapp
         return f"Enviando email a {self.usuario.whatsapp}"
 
@@ -59,7 +60,7 @@ class NotificadorTwitter(Notificador):
         super().__init__(usuario = usuario, mensaje = mensaje)
         return None
 
-    def notificar(self: 'NotificadorTwitter') -> str:
+    def notificar(self: 'NotificadorTwitter') -> Union[NoReturn, str]:
         # Recordablemente que usuario sea un objeto y que tenga un atributo twitter
         return f"Enviando email a {self.usuario.twitter}"
 

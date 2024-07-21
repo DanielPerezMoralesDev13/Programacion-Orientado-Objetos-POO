@@ -16,7 +16,7 @@ class Dictionario:
         self.palabra: str = palabra
         return None
 
-    def verificarPalabra(self: 'Dictionario') -> None:
+    def verificar_palabra(self: 'Dictionario') -> None:
         # logica para verificar si la palabra existe en el diccionario
         return None
 
@@ -27,7 +27,7 @@ class CorrectorOrtografico:
         self.diccionario: 'Dictionario' = Dictionario(palabra = "Data Science")
         return None
 
-    def corregirTexto(self: 'CorrectorOrtografico', texto: str) -> None:
+    def corregir_texto(self: 'CorrectorOrtografico', texto: str) -> None:
         # usamos el diccionario para corregir el texto
         return None
 
@@ -40,6 +40,7 @@ y esto no es bueno porque si queremos cambiar la clase Dictionario tendriamos qu
 
 
 from abc import ABC, abstractmethod
+from typing import Union
 
 class VerificadorOrtografico(ABC):
     @abstractmethod
@@ -49,7 +50,7 @@ class VerificadorOrtografico(ABC):
         return None
 
     @abstractmethod
-    def verificarPalabra(self: 'VerificadorOrtografico', palabra: str) -> None:
+    def verificar_palabra(self: 'VerificadorOrtografico', palabra: str) -> None:
         # Logica para verificar si la palabra existe en el diccionario
         return None
 
@@ -60,7 +61,7 @@ class Dictionario(VerificadorOrtografico):
         super().__init__()
         return None
 
-    def verificarPalabra(self: 'Dictionario', palabra: str) -> None:
+    def verificar_palabra(self: 'Dictionario', palabra: str) -> None:
         # logica para verificar si la palabra existe en el diccionario
         return None
 
@@ -70,22 +71,22 @@ class ServicioOnline(VerificadorOrtografico):
         super().__init__()
         return None
 
-    def verificarPalabra(self: 'ServicioOnline', palabra: str) -> None:
+    def verificar_palabra(self: 'ServicioOnline', palabra: str) -> None:
         # logica para verificar desde el servicio online
         return None
 
 class CorrectorOrtografico:
-    def __init__(self: 'CorrectorOrtografico', verificador: 'ServicioOnline' | 'Dictionario') -> None:
+    def __init__(self: 'CorrectorOrtografico', verificador: Union['ServicioOnline', 'Dictionario']) -> None:
         # A esto se le llama
-        self.verificador: 'ServicioOnline' | 'Dictionario' = verificador
+        self.verificador: Union['ServicioOnline', 'Dictionario'] = verificador
         return None
 
-    def corregirTexto(self: 'CorrectorOrtografico', texto: str) -> None:
+    def corregir_texto(self: 'CorrectorOrtografico', texto: str) -> None:
         # usamos el diccionario para corregir el texto
         return None
 
-corrector_one: CorrectorOrtografico = CorrectorOrtografico(verificador = ServicioOnline(palabra = "Dev Web FullStack"))
-corrector_dos: CorrectorOrtografico = CorrectorOrtografico(verificador = Dictionario(palabra = "Pentesting"))
+correctorOne: CorrectorOrtografico = CorrectorOrtografico(verificador = ServicioOnline(palabra = "Dev Web FullStack"))
+correctorDos: CorrectorOrtografico = CorrectorOrtografico(verificador = Dictionario(palabra = "Pentesting"))
 
 """
 Ahora la clase CorrectorOrtografico no depende de la clase Dictionario, ahora depende de la clase VerificadorOrtografico y esto es bueno porque si queremos cambiar la clase Dictionario por otra clase que tenga la misma funcionalidad no tendriamos que cambiar la clase CorrectorOrtografico y esto es bueno porque se cumple el principio de inversion de dependencias. 
